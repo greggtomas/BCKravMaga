@@ -1,19 +1,25 @@
 package com.planetapps.bckravmaga;
 
-import com.astuetz.PagerSlidingTabStrip;
-
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class BckmMainActivity extends FragmentActivity {
+import com.astuetz.PagerSlidingTabStrip;
+
+public class BckmMainActivity extends ActionBarActivity {
 
 	private final Handler handler = new Handler();
 
@@ -25,7 +31,15 @@ public class BckmMainActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bckm_main);
-
+		
+//		SpannableString spannableString = new SpannableString(getString(R.string.app_name));
+//		spannableString.setSpan(new ForegroundColorSpan(Color.RED), 0, spannableString.toString()
+//		        .length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//		
+//		getSupportActionBar().setDisplayShowHomeEnabled(true);
+//		getSupportActionBar().setIcon(R.drawable.small_bc_logo);
+//		getSupportActionBar().setTitle(spannableString);
+		
 		tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 		pager = (ViewPager) findViewById(R.id.pager);
 		adapter = new MyPagerAdapter(getSupportFragmentManager());
@@ -53,9 +67,9 @@ public class BckmMainActivity extends FragmentActivity {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+	/*	if (id == R.id.action_settings) {
 			return true;
-		}
+		}*/
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -98,17 +112,6 @@ public class BckmMainActivity extends FragmentActivity {
 			}
 			
 			return fragment;
-/*
-			if (position == 0) {
-				return CurriculumFragment.newInstance(position);
-			} 
-			
-			if (position == 1) {
-				return BeltAdvancementFragment.newInstance(position);
-			}*/
-			
-			
-			
 		}
 
 	}

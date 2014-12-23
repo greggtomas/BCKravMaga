@@ -2,4 +2,7 @@ bin/
 gen/
 assets/
 libs/
+.project
+.classpath
+.settings/*
 
